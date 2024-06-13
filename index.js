@@ -13,7 +13,7 @@ weatherForm.addEventListener("submit", async event => {
             const weatherData = await getWeatherData(city);
             displayWeatherInfo(weatherData);
         }
-        catch {
+        catch (error) {
             console.log(error);
             displayError(error);
         }
@@ -91,7 +91,7 @@ function getWeatherEmoji(weatherId) {
 function displayError(message) {
     const errorDisplay = document.createElement("p");
     errorDisplay.textContent = message;
-    error.Display.classList.add("errorDisplay");
+    errorDisplay.classList.add("errorDisplay");
     card.textContent = "";
     card.style.display = "flex";
     card.appendChild(errorDisplay);
